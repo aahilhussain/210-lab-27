@@ -15,11 +15,10 @@ void displayVillagers(const map<string, tuple<int, string, string>>& villagerDat
 
 int main() {
     // declarations
-    map<string, vector<string>> villagerColors;
-
+    map<string, tuple<int, string, string>> villagerData;
     int choice;
 
-    while {
+    do {
         cout << "1. Add Villager\n"
                 "2. Delete Villager\n"
                 "3. Increase Friendship\n"
@@ -37,8 +36,28 @@ int main() {
             getline(cin,name);
             cout << "Friendship level: ";
             cin >> friendship;
-
+            cout << "Species: ";
+            cin.ignore();
+            getline(cin, species);
+            cout << "Catchphrase: ";
+            getline(cin, catchphrase);
+            villagerData[name] = make_tuple(friendship, species, catchphrase);
+            cout << name << " added." << endl;
+        } else if (choice == 2) {
+            string name;
+            cout << "Villager name to delete: ";
+            cin.ignore();
+            getline(cin, name);
+            auto it = villagerData.find(name);
+            if (it != villagerData.end()) {
+                villagerData.erase(it)); {
+                    cout << name << "deleted. " << endl;
+                }
+            } else {
+                cout << name "not found. " << endl;
+            }
         }
+
     }
 
     // insert elements into the map
