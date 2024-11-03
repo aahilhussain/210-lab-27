@@ -17,6 +17,30 @@ int main() {
     // declarations
     map<string, vector<string>> villagerColors;
 
+    int choice;
+
+    while {
+        cout << "1. Add Villager\n"
+                "2. Delete Villager\n"
+                "3. Increase Friendship\n"
+                "4. Decrease Friendship\n"
+                "5. Search for Villager\n"
+                "6. Exit\n"
+                "Enter choices: ";
+        cin >> choice;
+
+        if(choice == 1) {
+            string name, species, catchphrase;
+            int friendship;
+            cout << "Villager name: ";
+            cin.ignore();
+            getline(cin,name);
+            cout << "Friendship level: ";
+            cin >> friendship;
+
+        }
+    }
+
     // insert elements into the map
     // note how the right-hand side of the assignment are the vector elements
     villagerColors["Audie"] = {"Orange", "Yellow", "Red"};
