@@ -50,11 +50,42 @@ int main() {
             getline(cin, name);
             auto it = villagerData.find(name);
             if (it != villagerData.end()) {
-                villagerData.erase(it)); {
-                    cout << name << "deleted. " << endl;
-                }
+                villagerData.erase(it);
+                    cout << name << " deleted." << endl;
             } else {
-                cout << name "not found. " << endl;
+                cout << name << " not found." << endl;            
+            }
+        } else if (choice == 3) {
+            string name;
+            cout << "Villager name to increase friendship: ";
+            cin.ignore();
+            getline(cin, name);
+            auto it = villagerData.find(name);
+            if (it != villagerData.end()) {
+                int& friendship = get<0>(it->second);
+                if (friendship < 10) {
+                    ++friendship;
+                    cout << name << "'s friendship increased to " << friendship << "." << endl;
+                } else {
+                    cout << name << "'s friendship is already at maximum level." << endl;
+                } else {
+                    cout << name << " not found" << endl;
+                }
+            } else if (choice == 4) {
+                string name;
+                cout << "Villager name to decrease friendship: ";
+                cin.ignore();
+                getline(cin, name);
+                auto it = villagerData.find(name);
+                if (it != villagerData.end()) {
+                    int& friendship = get<0>(it->second);
+                    if (friendship > 0) {
+                        --friendship;
+                        cout << name << "'s friendship decreased to " << friendship << "." << endl;
+                    } else {
+                        cout << name << "'s friendship is already at minimum lebel" << endl;
+                    }
+                }
             }
         }
 
